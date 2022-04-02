@@ -19,6 +19,7 @@ h4,
 h5,
 h6 {
   margin: 0;
+  max-width: 1250px;
 }
 
 html {
@@ -32,6 +33,16 @@ body {
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   overflow-x: hidden;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
 }
 
 /* Make images easier to work with */

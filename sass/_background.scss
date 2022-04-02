@@ -1,0 +1,16 @@
+﻿html {
+ 
+  background: linear-gradient(180deg, $color_highlight, $color_1);
+ 
+}
+@keyframes backgroundMotion {
+  0% {
+    background-position: 0 20%;
+  }
+  50% {
+    background-position: 50% 40%;
+  }
+  100% {
+    background-position: 0 20%;
+  }
+}
