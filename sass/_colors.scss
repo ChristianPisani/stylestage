@@ -1,7 +1,16 @@
-﻿$color_1: #261302;
-$color_light: #cfb961;
-$color_lighter: #FFE681;
-$color_dark: #0e0905;
-$color_highlight: #164342;
-$color_orange: #e8a435;
+﻿$yellow: #FFCC00;
+$persianBlue: #0F37D9;
+$darkBlue: #002d3b;
+$neonBlue: #4258FF;
+$red: #AD2A13;
+$darkRed: #250000;
+
+$color-primary: $yellow;
+$color-primary-tint: yellow;
+$color-secondary: $red;
+$color-primary-dark: $darkRed;
+$color-primary-dark-alt: $neonBlue;
+
+
 $color_overlay: rgba(0,0,0,0.9);
+$color_shadow: rgba(0,0,20,0.5);

@@ -1,0 +1,38 @@
+﻿@use "sass:list";
+
+@function boxShadowPattern($amount, $size, $colors...) {
+  $shadows: ();
+  
+  $offset: 0px;
+
+  @for $i from 1 to $amount {
+    $mod: ($i % length($colors)) + 1;
+    
+    $blur: 0px;
+    
+    @if $i == 1 {
+      $blur: 0px;
+    }
+    
+    $shadows: list.append(
+                    $shadows, 
+                    nth($colors, $mod) 0px $offset $blur (5px - $i), 
+                    $separator: comma);
+    
+    $offset: $i * $size / 2;
+  }
+  
+  $shadows: list.append(
+    $shadows,
+    $color-shadow 0px (length($colors) * $size / 2) + 25px 10px 0px,
+    $separator: comma
+  );
+
+  $shadows: list.append(
+    $shadows, 
+    $color-shadow 0px 5px 10px 0px inset,
+    $separator: comma
+  );
+
+  @return $shadows;
+}
