@@ -25,8 +25,9 @@
 header .container {
   padding: 40px;
   border: none;
-  background: linear-gradient(0deg, transparent, $color-secondary, $neonBlue);
   max-width: none;
+  background-color: $color-primary-dark;
+  clip-path: polygon(0 0, 100% 0%, 100% 94%, 0 100%);
 }
 
 main .container {
@@ -40,44 +41,65 @@ main .container {
 }
 
 blockquote {
+  left: 20%;
   padding: 5px 30px;
-  background-color: wheat;
-  border: 8px solid black;
+  background-color: black;
   margin: 40px 0;
   max-width: 750px;
+  border-radius: 10px;
+  border: 5px solid $color-primary;
+  box-shadow: 5px 5px 5px 0px $color_shadow;
   
-  /*&::before {
+  &::before {
     content: "";
     position: absolute;
-    background-color: wheat;
-    width: 100%;
-    height: 100px;
-    left: 0px;
+    background-color: $neonBlue;
+    width: 200px;
+    height: 200px;
+    left: 65%;
+    border-radius: 100%;
     z-index: -1;
-    box-shadow: call(get-function(boxShadowPattern), 6, 5px, $color-primary-dark, $color-primary);
-
-  }*/
-
-  box-shadow: call(get-function(boxShadowPattern), 6, 10px, $color-secondary, $color-primary);
-
+    box-shadow: call(get-function(boxShadowPattern), 60, 10px, white, $neonBlue);
+    animation: 30s ease-in-out infinite blink;
+  }
+  
   & p,
   & strong,
   & a {
-    color: black;
+    color: $color-primary;
     text-shadow: none;
     box-shadow: none;
+
+    text-shadow:
+            0px -0.75px 0px $color-primary-tint,
+            0px 0px 3px $color-primary-tint,
+            0px 2px 5px $color_shadow;
   }
 }
 
 @keyframes blink {
   0% {
-    box-shadow: call(get-function(boxShadowPattern), 4, 5px, $color-primary, $color-primary-dark)
+    background-color: $pink;
+    box-shadow: call(get-function(boxShadowPattern), 200, 4px, white, $pink)
   }
   50% {
-    box-shadow: call(get-function(boxShadowPattern), 4, 5px, $color-primary-dark, $color-primary)
+    background-color: $neonBlue;
+    box-shadow: call(get-function(boxShadowPattern), 200, 1px, white, $neonBlue)
   }
   100% {
-    box-shadow: call(get-function(boxShadowPattern), 4, 5px, $color-primary, $color-primary-dark)
+    background-color: $pink;
+    box-shadow: call(get-function(boxShadowPattern), 200, 4px, white, $pink)
   }
 }
 
+@keyframes clipPath {
+  0% {
+    clip-path: polygon(0% 0, 5% 0, -5% 200%, -25% 200%);
+  }
+  30% {
+    clip-path: polygon(125% 0, 140% 0, 115% 200%, 100% 200%);
+  }
+  100% {
+    clip-path: polygon(125% 0, 140% 0, 115% 200%, 100% 200%);
+  }
+}

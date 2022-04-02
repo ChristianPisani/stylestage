@@ -4,20 +4,38 @@
   $shadows: ();
   
   $offset: 0px;
+  
+  $color1Count: 0;
+  $otherColorCount: 0;
+  $countLimit: 1;
+  $currentColor: 1;
 
   @for $i from 1 to $amount {
     $mod: ($i % length($colors)) + 1;
     
     $blur: 0px;
     
-    @if $i == 1 {
-      $blur: 0px;
+    @if $mod == 1 {
+      $color1Count: $color1Count + 1;
+    }
+    
+    @if($color1Count >= $countLimit) {
+      $countLimit: $countLimit + 1;
+      $color1Count: 0;
+      $currentColor: 2;
     }
     
     $shadows: list.append(
+                    $shadows,
+                            (nth($colors, $currentColor)) 0px 0px $blur $offset,
+            $separator: comma);
+    
+    $currentColor: 1;
+      
+    /*$shadows: list.append(
                     $shadows, 
                     nth($colors, $mod) 0px $offset $blur (5px - $i), 
-                    $separator: comma);
+                    $separator: comma);*/
     
     $offset: $i * $size / 2;
   }
