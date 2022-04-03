@@ -46,11 +46,11 @@
     $separator: comma
   );
 
-  $shadows: list.append(
+  /*$shadows: list.append(
     $shadows, 
     $color-shadow 0px 5px 10px 0px inset,
     $separator: comma
-  );
+  );*/
 
   @return $shadows;
 }

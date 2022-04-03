@@ -7,13 +7,22 @@
           radial-gradient(circle at 100% 50%, white 5%, silver 5%, silver 15%, white 15%, white 20%, silver 20%, silver 29%, white 29%, white 34%, silver 34%, silver 44%, white 44%, white 49%, transparent 49%, transparent),
           radial-gradient(circle at 0    50%, white 5%, silver 5%, silver 15%, white 15%, white 20%, silver 20%, silver 29%, white 29%, white 34%, silver 34%, silver 44%, white 44%, white 49%, transparent 49%, transparent);
   background-size: 100px 50px;
+
+  display: flex;
+  justify-content: center;
 }
 
 body {
+  position: absolute;
   max-width: 1250px;
-  background-color: white;
   
   @media only screen and (min-width: 1250px) {
-    clip-path: polygon(0 0, 97% 0, 100% 20%, 98% 44%, 100% 76%, 100% 100%, 0 100%, 1% 69%, 0 43%, 1% 20%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    //clip-path: polygon(0 0, 97% 0, 100% 20%, 98% 44%, 100% 76%, 100% 100%, 0 100%, 1% 69%, 0 43%, 1% 20%);
   }
+}
+
+main,
+article {
+  width: 100%;
 }

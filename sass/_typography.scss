@@ -35,6 +35,10 @@ h1 {
     animation: 3s infinite ease-in clipPath;
     filter: blur(2px);
   }
+  
+  @media only screen and (max-width: 1250px)  {
+    font-size: 80px;
+  }
 }
 
 p,
@@ -46,20 +50,24 @@ blockquote {
   color: black;
   font-family: $font-secondary;
   font-size: 20px;
-  background-color: inherit;
   line-height: 1.6;
   max-width: 1000px;
 }
 
-header h2 {
-  font-family: $font-primary;
-  color: $color-primary;
-  text-shadow:
-          0px -0.75px 0px $color-primary-tint,
-          0px 0px 3px $color-primary-tint,
-          0px 2px 5px $color_shadow;
+header {
+  p,
+  a {
+    color: $color-primary;
+  }
+  h2 {
+    font-family: $font-primary;
+    color: $color-primary;
+    text-shadow: 0px -0.75px 0px $color-primary-tint,
+    0px 0px 3px $color-primary-tint,
+    0px 2px 5px $color_shadow;
 
-  max-width: 1000px;
+    max-width: 1000px;
+  }
 }
 
 .skip-link {
@@ -76,6 +84,96 @@ header h2 {
 
 .skip-link:focus {
   transform: translateY(0%);
+}
+
+blockquote {
+  left: 20%;
+  padding: 5px 30px;
+  background-color: black;
+  margin: 40px 0;
+  max-width: 660px;
+  border-radius: 10px;
+  border: 5px solid $color-primary;
+  box-shadow: 5px 5px 5px 0px $color_shadow,
+    25px 25px 0px -10px $mutedNeonBlue,
+    -25px -25px 0px -10px $mutedPink;
+
+  &::before {
+    content: "";
+    position: absolute;
+    //background-color: $neonBlue;
+    width: 100px;
+    height: 100px;
+    transform: translateX(30vw) translateY(-50px);
+    border-radius: 100%;
+    z-index: -1;
+    box-shadow: call(get-function(boxShadowPattern), 60, 10px, white, $neonBlueOpacity);
+    animation: 30s ease-in-out infinite blink;
+  }
+
+  & p,
+  & strong {
+    color: $color-primary;
+    text-shadow: none;
+    box-shadow: none;
+
+    text-shadow:
+            0px -0.75px 0px $color-primary-tint,
+            0px 0px 3px $color-primary-tint,
+            0px 2px 5px $color_shadow;
+  }
+  
+  & a {
+    background-color: $mutedNeonBlue;
+    box-shadow: 0px 0px 0px 3px $mutedNeonBlue;
+    color: black;
+    font-weight: bold;
+    text-shadow: none;
+    display: inline-block;
+    text-decoration: none;
+    transition: 150ms;
+    
+    &:first-of-type {
+      transform: skewX(350deg);
+    }
+
+    &:last-of-type {
+      transform: skewX(5deg) rotateZ(-1deg);
+
+      &::before {
+        content: "";
+        position: absolute;
+        //background-color: $neonBlue;
+        width: 100px;
+        height: 100px;
+        transform: translateX(-100px) translateY(500px);
+        border-radius: 100%;
+        z-index: -1;
+        box-shadow: call(get-function(boxShadowPattern), 60, 20px, white, $pinkOpacity);
+        animation: 25s ease-in-out infinite blink;
+      }
+    }
+    
+    &:hover {
+      box-shadow: 0px 0px 0px 4px $color-primary;
+      background-color: $color-primary;
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    background-color: $pinkOpacity;
+    box-shadow: call(get-function(boxShadowPattern), 200, 4px, white, $pinkOpacity)
+  }
+  50% {
+    background-color: $neonBlueOpacity;
+    box-shadow: call(get-function(boxShadowPattern), 200, 1px, white, $neonBlueOpacity)
+  }
+  100% {
+    background-color: $pinkOpacity;
+    box-shadow: call(get-function(boxShadowPattern), 200, 4px, white, $pinkOpacity)
+  }
 }
 
 @keyframes clipPath {

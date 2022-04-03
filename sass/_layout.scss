@@ -6,7 +6,6 @@
   text-align: center;
   width: 100%;
   max-width: 1250px;
-  padding: 20px 30px;
   margin-bottom: 20px;
   
   //background: linear-gradient(0deg, $color-primary-dark, $color-secondary);
@@ -19,6 +18,33 @@
     border: none;
     box-shadow: none;
     animation: none;
+    clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 0);
+    background-color: white;
+    padding: 20px 10%;
+    
+    & > p,
+    & > span,
+    & > h2,
+    & > h3,
+    & > h4, {
+      max-width: 950px;
+      padding: 10px 20px;
+      
+      &:nth-child(even) {
+        transform: skewX(-3deg);
+        background-color: $mutedNeonBlue;
+      }
+      
+      &:nth-child(odd) {
+        background-color: $mutedPink;
+        transform: skewX(3deg);
+      }
+
+      &:nth-child(3) {
+        transform: skewX(0deg) translateX(10px) rotateZ(0.5deg);
+        background-color: $mutedPink;
+      }
+    }
   }
 }
 
@@ -26,7 +52,7 @@ header .container {
   padding: 40px;
   border: none;
   max-width: none;
-  background-color: $color-primary-dark;
+  background: black;
   clip-path: polygon(0 0, 100% 0%, 100% 94%, 0 100%);
 }
 
@@ -35,62 +61,17 @@ main .container {
 }
 
 #about .container {
-  justify-content: start;
+  justify-content: center;
   align-items: start;
   text-align: left;
-}
-
-blockquote {
-  left: 20%;
-  padding: 5px 30px;
-  background-color: black;
-  margin: 40px 0;
-  max-width: 750px;
-  border-radius: 10px;
-  border: 5px solid $color-primary;
-  box-shadow: 5px 5px 5px 0px $color_shadow;
   
-  &::before {
-    content: "";
-    position: absolute;
-    background-color: $neonBlue;
-    width: 200px;
-    height: 200px;
-    left: 65%;
-    border-radius: 100%;
-    z-index: -1;
-    box-shadow: call(get-function(boxShadowPattern), 60, 10px, white, $neonBlue);
-    animation: 30s ease-in-out infinite blink;
-  }
-  
-  & p,
-  & strong,
-  & a {
-    color: $color-primary;
-    text-shadow: none;
-    box-shadow: none;
-
-    text-shadow:
-            0px -0.75px 0px $color-primary-tint,
-            0px 0px 3px $color-primary-tint,
-            0px 2px 5px $color_shadow;
+  & > p:last-child {
+    background-color: $mutedPink;
+    transform: skewX(0);
+    margin-bottom: 70px;
   }
 }
 
-@keyframes blink {
-  0% {
-    background-color: $pink;
-    box-shadow: call(get-function(boxShadowPattern), 200, 4px, white, $pink)
-  }
-  50% {
-    background-color: $neonBlue;
-    box-shadow: call(get-function(boxShadowPattern), 200, 1px, white, $neonBlue)
-  }
-  100% {
-    background-color: $pink;
-    box-shadow: call(get-function(boxShadowPattern), 200, 4px, white, $pink)
-  }
-}
 
 @keyframes clipPath {
   0% {
