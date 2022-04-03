@@ -27,7 +27,7 @@ h1 {
     position: absolute;
     padding: 40px;
     left: 0px;
-    top: 15px;
+    top: 0px;
     width: 100%;
     color: transparent;
     background: white;
@@ -52,9 +52,22 @@ blockquote {
   font-size: 20px;
   line-height: 1.6;
   max-width: 1000px;
+  font-weight: 500;
+}
+
+.container > p {
+  border: 7px solid;
+}
+
+header .container > p {
+  border: none;
 }
 
 header {
+  p {
+    line-height: 2.3;
+  }
+  
   p,
   a {
     color: $color-primary;
@@ -117,12 +130,23 @@ blockquote {
     text-shadow: none;
     box-shadow: none;
 
-    text-shadow:
+    /*text-shadow:
             0px -0.75px 0px $color-primary-tint,
             0px 0px 3px $color-primary-tint,
-            0px 2px 5px $color_shadow;
+            0px 2px 5px $color_shadow;*/
   }
   
+  & strong {
+    margin-bottom: 10px;
+    font-size: 25px;
+    display: flex;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+}
+
+blockquote,
+header {
   & a {
     background-color: $mutedNeonBlue;
     box-shadow: 0px 0px 0px 3px $mutedNeonBlue;
@@ -132,7 +156,7 @@ blockquote {
     display: inline-block;
     text-decoration: none;
     transition: 150ms;
-    
+
     &:first-of-type {
       transform: skewX(350deg);
     }
@@ -149,11 +173,11 @@ blockquote {
         transform: translateX(-100px) translateY(500px);
         border-radius: 100%;
         z-index: -1;
-        box-shadow: call(get-function(boxShadowPattern), 60, 20px, white, $pinkOpacity);
+        box-shadow: call(get-function(boxShadowPattern), 60, 20px, $neonBlue, $pinkOpacity);
         animation: 25s ease-in-out infinite blink;
       }
     }
-    
+
     &:hover {
       box-shadow: 0px 0px 0px 4px $color-primary;
       background-color: $color-primary;
@@ -162,7 +186,7 @@ blockquote {
 }
 
 #about .container h2:first-of-type {
-  margin-bottom: -25px;
+  margin-bottom: -30px;
   margin-left: -10px;
   z-index: 10;
   border: 5px solid black;
@@ -171,15 +195,15 @@ blockquote {
 @keyframes blink {
   0% {
     background-color: $pinkOpacity;
-    box-shadow: call(get-function(boxShadowPattern), 200, 4px, white, $pinkOpacity)
+    box-shadow: call(get-function(boxShadowPattern), 200, 4px, whitesmoke, $pinkOpacity)
   }
   50% {
     background-color: $neonBlueOpacity;
-    box-shadow: call(get-function(boxShadowPattern), 200, 1px, white, $neonBlueOpacity)
+    box-shadow: call(get-function(boxShadowPattern), 200, 1px, whitesmoke, $neonBlueOpacity)
   }
   100% {
     background-color: $pinkOpacity;
-    box-shadow: call(get-function(boxShadowPattern), 200, 4px, white, $pinkOpacity)
+    box-shadow: call(get-function(boxShadowPattern), 200, 4px, whitesmoke, $pinkOpacity)
   }
 }
 

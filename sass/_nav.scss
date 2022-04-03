@@ -2,6 +2,9 @@
   width: 100%;
   background: linear-gradient(45deg, #e7cfcd, #d8cde2);
   padding-bottom: 25px;
+  max-width: 1000px;
+  z-index: 1;
+  box-shadow: 0px 15px 10px -15px $color_shadow;
   
   @media only screen and (min-width: 1250px) {
     transform: rotateZ(1deg) translateY(10px);
@@ -23,11 +26,14 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 25px;
-    gap: 20px;
+    gap: 10px;
+    padding: 0px 50px;
     
     li {
       list-style: none;
-      width: 40%;
+      flex: 1;
+      min-width: 200px;
+      max-width: 400px;
       text-align: center;
 
       background-color: $mutedNeonBlue;
@@ -43,6 +49,7 @@
       a {
         text-decoration: none;
         line-height: 3;
+        font-weight: 600;
       }
 
       &:nth-child(2n) {
