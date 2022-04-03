@@ -27,7 +27,7 @@ h1 {
     position: absolute;
     padding: 40px;
     left: 0px;
-    top: 0px;
+    top: 15px;
     width: 100%;
     color: transparent;
     background: white;
@@ -159,6 +159,13 @@ blockquote {
       background-color: $color-primary;
     }
   }
+}
+
+#about .container h2:first-of-type {
+  margin-bottom: -25px;
+  margin-left: -10px;
+  z-index: 10;
+  border: 5px solid black;
 }
 
 @keyframes blink {

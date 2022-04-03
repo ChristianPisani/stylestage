@@ -3,13 +3,18 @@
   background: linear-gradient(45deg, #e7cfcd, #d8cde2);
   padding-bottom: 25px;
   
+  @media only screen and (min-width: 1250px) {
+    transform: rotateZ(1deg) translateY(10px);
+    padding-bottom: 60px;
+  }
+  
   &::before {
     content: "";
     position: absolute;
     width: 100%;
     background: linear-gradient(45deg, #e7cfcd, #d8cde2);
     height: 100px;
-    transform: translateY(-70px);
+    transform: translateY(-60px);
     z-index: -1;
   }
   
@@ -33,18 +38,28 @@
       display: inline-block;
       text-decoration: none;
       transition: 250ms;
+      border: 5px solid black;
+      
+      a {
+        text-decoration: none;
+        line-height: 3;
+      }
 
       &:nth-child(2n) {
-        transform: skewX(350deg);
+        transform: skewX(-5deg);
       }
 
       &:nth-child(3n) {
         transform: skewX(5deg) rotateZ(-1deg);
       }
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         box-shadow: 0px 0px 0px 4px $color-primary;
         background-color: $color-primary;
+        cursor: pointer;
+        transform: skewX(0);
       }
     }
   }

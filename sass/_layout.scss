@@ -14,13 +14,21 @@
   //box-shadow: call(get-function(boxShadowPattern), 12, 5px, $color-primary-dark, $color-primary);
           //animation: 5s blink infinite step-start;
   
+  article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
   .container {
     border: none;
     box-shadow: none;
     animation: none;
-    clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 0);
+    clip-path: polygon(100% -10%, 100% 100%, 0 98%, 0 0);
     background-color: white;
     padding: 20px 10%;
+    max-width: 950px;
     
     & > p,
     & > span,
@@ -50,10 +58,14 @@
 
 header .container {
   padding: 40px;
-  border: none;
   max-width: none;
   background: black;
-  clip-path: polygon(0 0, 100% 0%, 100% 94%, 0 100%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+
+  @media only screen and (max-width: 1250px)  {
+    clip-path: polygon(0 0, 100% 0%, 100% 94%, 0 100%);
+  }
+  border: 15px solid $mutedPink;
 }
 
 main .container {

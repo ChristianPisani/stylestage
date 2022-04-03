@@ -42,6 +42,7 @@ body {
 
 header {
   width: 100%;
+  max-width: 950px;
 }
 
 /* Make images easier to work with */
@@ -92,7 +93,7 @@ h1::after {
   position: absolute;
   padding: 40px;
   left: 0px;
-  top: 0px;
+  top: 15px;
   width: 100%;
   color: transparent;
   background: white;
@@ -205,6 +206,13 @@ blockquote a:hover {
   background-color: #FFCC00;
 }
 
+#about .container h2:first-of-type {
+  margin-bottom: -25px;
+  margin-left: -10px;
+  z-index: 10;
+  border: 5px solid black;
+}
+
 @keyframes blink {
   0% {
     background-color: #B2675E50;
@@ -263,13 +271,20 @@ article {
   max-width: 1250px;
   margin-bottom: 20px;
 }
+.container article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .container .container {
   border: none;
   box-shadow: none;
   animation: none;
-  clip-path: polygon(100% 0, 100% 100%, 0 98%, 0 0);
+  clip-path: polygon(100% -10%, 100% 100%, 0 98%, 0 0);
   background-color: white;
   padding: 20px 10%;
+  max-width: 950px;
 }
 .container .container > p, .container .container > span, .container .container > h2, .container .container > h3, .container .container > h4 {
   max-width: 950px;
@@ -290,10 +305,15 @@ article {
 
 header .container {
   padding: 40px;
-  border: none;
   max-width: none;
   background: black;
-  clip-path: polygon(0 0, 100% 0%, 100% 94%, 0 100%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+  border: 15px solid #e7cfcc;
+}
+@media only screen and (max-width: 1250px) {
+  header .container {
+    clip-path: polygon(0 0, 100% 0%, 100% 94%, 0 100%);
+  }
 }
 
 main .container {
@@ -327,13 +347,19 @@ nav {
   background: linear-gradient(45deg, #e7cfcd, #d8cde2);
   padding-bottom: 25px;
 }
+@media only screen and (min-width: 1250px) {
+  nav {
+    transform: rotateZ(1deg) translateY(10px);
+    padding-bottom: 60px;
+  }
+}
 nav::before {
   content: "";
   position: absolute;
   width: 100%;
   background: linear-gradient(45deg, #e7cfcd, #d8cde2);
   height: 100px;
-  transform: translateY(-70px);
+  transform: translateY(-60px);
   z-index: -1;
 }
 nav ul {
@@ -355,16 +381,23 @@ nav ul li {
   display: inline-block;
   text-decoration: none;
   transition: 250ms;
+  border: 5px solid black;
+}
+nav ul li a {
+  text-decoration: none;
+  line-height: 3;
 }
 nav ul li:nth-child(2n) {
-  transform: skewX(350deg);
+  transform: skewX(-5deg);
 }
 nav ul li:nth-child(3n) {
   transform: skewX(5deg) rotateZ(-1deg);
 }
-nav ul li:hover {
+nav ul li:hover, nav ul li:focus, nav ul li:active {
   box-shadow: 0px 0px 0px 4px #FFCC00;
   background-color: #FFCC00;
+  cursor: pointer;
+  transform: skewX(0);
 }
 
 .link-github {
