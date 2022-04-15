@@ -377,7 +377,74 @@ main .container {
 #about .container:nth-of-type(2) > p:nth-of-type(2) {
   margin-bottom: -45px;
   z-index: 2;
-  margin-left: 30px;
+  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  background-color: #e7cfcc;
+}
+#about .container:nth-of-type(2) > p:nth-of-type(2)::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  background-color: inherit;
+  left: 0;
+  z-index: -1;
+  border-radius: 50% 0 0 50%;
+}
+#about .container:nth-of-type(2) > p:nth-of-type(2)::before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background-color: #e7cfcc;
+  z-index: -1;
+  position: absolute;
+  left: 0px;
+  border: inherit;
+  transform: scale(1);
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin: -50px;
+  margin-right: 10px;
+  transform: rotateZ(45deg);
+  background-image: radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%);
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: 2s linear infinite radial;
+}
+#about .container:nth-of-type(2) li:nth-of-type(6)::after {
+  content: none;
+}
+#about .container:nth-of-type(2) li:nth-of-type(6):hover {
+  animation: 1s linear infinite text-anim;
+  transform-origin: left center;
+}
+@keyframes text-anim {
+  0% {
+    transform: translateX(0) skewX(0);
+  }
+  25% {
+    transform: translateX(0) skewX(45deg) rotateZ(-5deg) scaleX(0.75);
+  }
+  30% {
+    transform: translateX(0%) skewX(20deg) scaleX(1);
+  }
+  75% {
+    transform: translateX(400%);
+  }
+  80% {
+    transform: translateX(400%) translateY(-200%);
+  }
+  85% {
+    transform: translateX(0) translateY(-50vh);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
 }
 
 @property --bg-rotation {
@@ -400,7 +467,7 @@ main .container {
   background-color: transparent;
   overflow: hidden;
   border-radius: 20px;
-  animation: 2s ease-in-out hover infinite alternate;
+  animation: 5s ease-in-out hover infinite alternate;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 20, 0.5), 25px 25px 0px -10px #c4cbff, -25px -25px 0px -10px #e7cfcc;
 }
 @keyframes hover {
@@ -431,7 +498,7 @@ main .container {
   background-position: center;
   left: -1000px;
   top: -1000px;
-  background-image: conic-gradient(black 0deg, black 120deg, #4258FF 120deg, #4258FF 240deg, black 240deg, black 360deg);
+  background-image: conic-gradient(black 0deg, black 72deg, #4258FF 72deg, #4258FF 144deg, black 144deg, black 216deg, #4258FF 216deg, #4258FF 288deg, black 288deg, black 360deg);
   animation: 20s linear infinite bg-rotation;
   z-index: -2;
 }
@@ -448,12 +515,13 @@ main .container {
 }
 .container ul li {
   list-style: none;
-  transition: 1s;
+  transition: 250ms;
   user-select: none;
   display: flex;
   align-items: center;
   position: relative;
   margin: 10px;
+  z-index: 1;
 }
 .container ul li::before {
   content: "";
@@ -469,18 +537,28 @@ main .container {
 .container ul li::after {
   content: "";
   position: absolute;
-  left: -48px;
+  left: -22px;
   border-radius: 100%;
   pointer-events: none;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   transform: scale(0);
   transition: transform 250ms;
+  z-index: -1;
+}
+.container ul li:hover::before {
+  background-color: white;
+  box-shadow: 0px 0px 15px hotpink, 0px 0px 2px hotpink;
+}
+.container ul li:hover {
+  text-shadow: 0px 0px 15px hotpink, 0px 0px 2px hotpink;
+  font-weight: bold;
+  color: white;
 }
 .container ul li:hover::after {
   background-color: transparent;
   transform: scale(1);
-  background-image: radial-gradient(transparent 20%, transparent 48%, rgba(66, 88, 255, 0.3137254902) 49%, rgba(66, 88, 255, 0.3137254902) 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, rgba(66, 88, 255, 0.3137254902) 49%, rgba(66, 88, 255, 0.3137254902) 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, rgba(66, 88, 255, 0.3137254902) 49%, rgba(66, 88, 255, 0.3137254902) 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, rgba(66, 88, 255, 0.3137254902) 49%, rgba(66, 88, 255, 0.3137254902) 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, rgba(66, 88, 255, 0.3137254902) 49%, rgba(66, 88, 255, 0.3137254902) 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, rgba(66, 88, 255, 0.3137254902) 49%, rgba(66, 88, 255, 0.3137254902) 50%, transparent 51%);
+  background-image: radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%), radial-gradient(transparent 20%, transparent 48%, #4258FF 49%, #4258FF 50%, transparent 51%);
   background-repeat: no-repeat;
   background-position: center;
   animation: 2s linear infinite radial;
