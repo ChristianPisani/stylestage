@@ -54,3 +54,69 @@
 
   @return $shadows;
 }
+
+@function conicGradient() {
+  $gradient: ();
+  
+  @return conic-gradient(
+          $neonBlue calc(0deg + var(--bg-rotation)),
+          $neonBlue calc(45deg + var(--bg-rotation)),
+          transparent calc(45deg + var(--bg-rotation)),
+          transparent calc(90deg + var(--bg-rotation)),
+          $neonBlue calc(90deg + var(--bg-rotation)),
+          $neonBlue calc(135deg + var(--bg-rotation)),
+          transparent calc(135deg + var(--bg-rotation)),
+          transparent calc(180deg + var(--bg-rotation)),
+          $neonBlue calc(180deg + var(--bg-rotation)),
+          $neonBlue calc(225deg + var(--bg-rotation)),
+          transparent calc(225deg + var(--bg-rotation)),
+          transparent calc(270deg + var(--bg-rotation)),
+          $neonBlue calc(270deg + var(--bg-rotation)),
+          $neonBlue calc(315deg + var(--bg-rotation)),
+          transparent calc(315deg + var(--bg-rotation)),
+          transparent calc(360deg + var(--bg-rotation)));
+}
+
+@mixin conical-gradient($count, $colors...) {
+  $cones: null;
+  $rotationStep: 360deg / $count;
+
+  @for $i from 1 through $count {
+    $mod: ($i % length($colors)) + 1;
+    @debug $colors;
+    
+    $start-rotation: ($rotationStep) * ($i - 1);
+    $end-rotation: $rotationStep * $i;
+    
+    $color: nth($colors, $mod);
+    
+    $stripe: $color $start-rotation;
+    $stripeEnd: $color $end-rotation;
+    $cones: append($cones, $stripe, comma);
+    $cones: append($cones, $stripeEnd, comma);
+  }
+
+  background-image: conic-gradient($cones);
+}
+
+@mixin linear-gradient($rotation, $count, $colors...) {
+  $cones: null;
+  $rotationStep: 100% / $count;
+
+  @for $i from 1 through $count {
+    $mod: ($i % length($colors)) + 1;
+    @debug $colors;
+
+    $start-rotation: ($rotationStep) * ($i - 1);
+    $end-rotation: $rotationStep * $i;
+
+    $color: nth($colors, $mod);
+
+    $stripe: $color $start-rotation;
+    $stripeEnd: $color $end-rotation;
+    $cones: append($cones, $stripe, comma);
+    $cones: append($cones, $stripeEnd, comma);
+  }
+
+  background-image: linear-gradient($rotation, $cones);
+}
