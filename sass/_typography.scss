@@ -7,38 +7,9 @@ h4 {
   max-width: 1000px;
 }
 
-h1 {
-  font-family: $font-header;
-  color: $color-primary;
-  font-size: 120px;
-  font-weight: 200;
-  text-shadow: 
-    2px 1px 0px $color-primary-tint,
-    0px 0px 10px $color-primary,
-    0px 10px 5px $color_shadow;
-  
-  &::before {
-    content: "";
-    filter: blur(20px);
-  }
-  
-  &::after {
-    content: "Style Stage";
-    position: absolute;
-    padding: 40px;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    color: transparent;
-    background: white;
-    -webkit-background-clip: text;
-    animation: 3s infinite ease-in clipPath;
-    filter: blur(2px);
-  }
-  
-  @media only screen and (max-width: 1250px)  {
-    font-size: 80px;
-  }
+h1,
+{
+  @include shinyText("Stylestage", 120px)
 }
 
 p,
@@ -194,10 +165,24 @@ header {
 }
 
 #about .container h2:first-of-type {
-  margin-bottom: -30px;
-  margin-left: -10px;
   z-index: 10;
   border: 5px solid black;
+  position: sticky;
+  top: 0px;
+}
+
+
+footer {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  
+  .container {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    gap: 20px;
+  }
 }
 
 @keyframes blink {

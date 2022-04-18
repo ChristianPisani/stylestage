@@ -120,3 +120,37 @@
 
   background-image: linear-gradient($rotation, $cones);
 }
+
+@mixin shinyText($text, $fontSize) {
+  position: relative;
+  font-family: $font-header;
+  color: $color-primary;
+  font-size: $fontSize;
+  font-weight: 200;
+  text-shadow:
+          2px 1px 0px $color-primary-tint,
+          0px 0px 10px $color-primary,
+          0px 10px 5px $color_shadow;
+
+  &::before {
+    content: "";
+    filter: blur(20px);
+  }
+
+  &::after {
+    content: $text;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    color: transparent;
+    background: white;
+    -webkit-background-clip: text;
+    animation: 3s infinite ease-in clipPath;
+    filter: blur(2px);
+  }
+
+  @media only screen and (max-width: 1250px)  {
+    font-size: $fontSize * 0.6;
+  }
+}
