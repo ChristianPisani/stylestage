@@ -154,12 +154,12 @@ header h2 {
   transition: transform 0.3s;
   font-size: 12px;
   color: white;
-  top: 5px;
+  top: 2rem;
 }
 
 .skip-link:focus,
 .skip-link:focus-visible {
-  transform: translateY(0%);
+  transform: translateY(0);
 }
 
 blockquote {
